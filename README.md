@@ -16,4 +16,13 @@ Menschen aus 🇩🇪 Deutschland & 🇩🇰 Dänemark, die neugierig auf KI-Fli
 ## Setup
 
 1. Klone das Repo  
-   ```bash
+   git clone https://github.com/HEALDIGITAL/flirtly-webchat.git
+
+2. Öffne `index.html` im Browser  
+3. Für GPT-Verbindung: ergänze später deine OpenAI API in `script.js`
+
+## To-do (next steps)
+
+- [ ] GPT-Integration (OpenAI)
+- [ ] Deployment mit Netlify
+- [ ] Design-Feinschliff & Mobile-Stil
