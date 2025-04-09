@@ -17,15 +17,38 @@ async function sendMessage() {
   userInput.value = "";
 
   const char = characterSelect.value;
-  const response = await getAIResponse(char, text);
+  const response = await getGPTResponse(char, text);
   addMessage("ai", response);
 }
 
-async function getAIResponse(character, userText) {
-  if (character === "Mila") return "Oh, du bist ja ganz schön mutig... Ich mag das.";
-  if (character === "Lukas") return "Das klingt wirklich schön. Erzähl mir mehr über dich.";
-  if (character === "Anna") return "Haha! Du bringst mich zum Lachen. Noch so ein Spruch?";
-  if (character === "Jonas") return "Klingt interessant. Aber ich höre lieber als ich rede.";
-  if (character === "Lina") return "Wie in einem Traum... Stell dir vor, wir wären an einem See bei Mondschein.";
-  return "Erzähl mir mehr!";
+async function getGPTResponse(character, userText) {
+  const systemPrompts = {
+    Mila: "Du bist Mila, eine freche, charmante Frau. Du antwortest verspielt, neckisch, manchmal flirtend provokant.",
+    Lukas: "Du bist Lukas, ein romantischer, empathischer Mann. Du bist tiefgründig, liebevoll, einfühlsam.",
+    Anna: "Du bist Anna, eine verspielte, neugierige Frau. Du machst Spaß, lachst gerne, bist spontan.",
+    Jonas: "Du bist Jonas, nordisch-cool, ruhig und mit trockenem Humor. Du antwortest klar, aber charmant.",
+    Lina: "Du bist Lina, eine träumerische Frau mit poetischem Stil. Du liebst romantische Bilder & Fantasien.",
+  };
+
+  const messages = [
+    { role: "system", content: systemPrompts[character] || "Du bist ein flirtender KI-Chatpartner." },
+    { role: "user", content: userText }
+  ];
+
+  const response = await fetch("https://api.openai.com/v1/chat/completions", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${OPENAI_API_KEY}`
+    },
+    body: JSON.stringify({
+      model: "gpt-4",
+      messages: messages,
+      max_tokens: 200,
+      temperature: 0.9
+    })
+  });
+
+  const data = await response.json();
+  return data.choices?.[0]?.message?.content?.trim() || "Hmm... das weiß ich gerade nicht.";
 }
