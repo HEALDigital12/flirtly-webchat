@@ -2,33 +2,56 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>Flirtly Webchat</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flirtly.Marketer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0 auto;
+      max-width: 600px;
+    }
+    input, textarea, select, button {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 8px;
+    }
+    button {
+      background-color: crimson;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      margin-top: 40px;
+      padding: 20px 10px;
+      border-top: 1px solid #ccc;
+      color: #666;
+    }
+    footer a {
+      margin: 0 10px;
+      color: #666;
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>Flirtly</h1>
-    <p>Chatte. Kichere. Verliebe dich. Vielleicht.</p>
-  </header>
+  <h1>Flirtly.Marketer</h1>
+  <p>Erstelle deine KI-basierte Kampagne für TikTok, Reels, SMS oder Newsletter.</p>
 
-  <div class="chat-container">
-    <label for="character">Wähle deinen Flirt-Charakter:</label>
-    <select id="character">
-      <option value="Anna">Anna (verspielt)</option>
-      <option value="Lukas">Lukas (romantisch)</option>
-      <option value="Mila">Mila (frech)</option>
-      <option value="Jonas">Jonas (nordisch-cool)</option>
-      <option value="Lina">Lina (fantasievoll)</option>
-    </select>
+  <!-- Formular (gekürzt für Übersichtlichkeit) -->
+  <form>
+    <!-- Inhalte hier... -->
+    <input placeholder="(hier kommt dein Kampagnen-Formular hin)" disabled />
+  </form>
 
-    <div class="messages" id="chatBox"></div>
-
-    <div class="input-area">
-      <input type="text" id="userInput" placeholder="Schreib etwas..." />
-      <button onclick="sendMessage()">Senden</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+  <footer>
+    <a href="impressum.html">Impressum</a> |
+    <a href="datenschutz.html">Datenschutz</a> |
+    <a href="agb.html">AGB</a> |
+    <a href="kontakt.html">Kontakt</a>
+  </footer>
 </body>
 </html>
