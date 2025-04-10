@@ -9,7 +9,7 @@ header .hero {
   position: relative;
 }
 .hero-img {
-  width: 70%;
+  width: 100%;
   height: auto;
   display: block;
   filter: brightness(0.7);
