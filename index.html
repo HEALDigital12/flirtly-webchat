@@ -3,129 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Flirtly.Marketer</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      margin: 0 auto;
-      max-width: 600px;
-    }
-    input, textarea, select, button {
-      width: 100%;
-      margin-bottom: 10px;
-      padding: 8px;
-    }
-    button {
-      background-color: crimson;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    pre {
-      background: #f4f4f4;
-      padding: 10px;
-      white-space: pre-wrap;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9em;
-      margin-top: 40px;
-      padding: 20px 10px;
-      border-top: 1px solid #ccc;
-      color: #666;
-    }
-    footer a {
-      margin: 0 10px;
-      color: #666;
-      text-decoration: none;
-    }
-  </style>
+  <title>Flirtly – Dein KI-Flirtchat</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Flirtly.Marketer</h1>
-  <p>Erstelle deine KI-basierte Kampagne für TikTok, Reels, SMS oder Newsletter.</p>
+  <header>
+    <div class="hero">
+      <h1>Flirtly</h1>
+      <p>Flirte mit Charme, Stil und KI. Per Webchat oder SMS – authentisch, anonym & aufregend.</p>
+      <a href="https://flirtly-chat.netlify.app/" class="cta">Zum KI-Flirt starten</a>
+    </div>
+  </header>
 
-  <form id="campaignForm">
-    <label>Zielgruppe:</label>
-    <input type="text" name="zielgruppe" required />
+  <main>
+    <section class="features">
+      <h2>Was dich erwartet:</h2>
+      <ul>
+        <li>✨ Smarte KI-Flirtpartner:innen</li>
+        <li>📱 Per SMS oder online – du entscheidest</li>
+        <li>💬 Authentische Gespräche mit Persönlichkeit</li>
+        <li>🔒 100% diskret & datenschutzkonform</li>
+      </ul>
+    </section>
 
-    <label>Plattform:</label>
-    <select name="kanal">
-      <option value="TikTok">TikTok</option>
-      <option value="Instagram Reels">Instagram Reels</option>
-      <option value="SMS">SMS</option>
-      <option value="Newsletter">Newsletter</option>
-    </select>
-
-    <label>Kampagnenziel:</label>
-    <input type="text" name="ziel" required />
-
-    <label>Budget (€):</label>
-    <input type="number" name="budget" required />
-
-    <label>Dauer (Tage):</label>
-    <input type="number" name="dauer" required />
-
-    <label>Stil/Tonalität:</label>
-    <input type="text" name="stil" required />
-
-    <label>Besonderheiten/USP:</label>
-    <input type="text" name="besondere_inhalte" />
-
-    <label>Call to Action:</label>
-    <input type="text" name="call_to_action" required />
-
-    <button type="submit">Kampagne generieren</button>
-  </form>
-
-  <h2>Ergebnis</h2>
-  <pre id="output">Noch keine Ausgabe.</pre>
+    <section class="about">
+      <h2>Über Flirtly</h2>
+      <p>Flirtly ist ein moderner, KI-gestützter Flirtchat-Service für Deutschland und Dänemark. Unsere Agenten denken mit, flirten stilvoll und passen sich deinem Vibe an. Starte jetzt kostenlos!</p>
+    </section>
+  </main>
 
   <footer>
-    <a href="impressum.html">Impressum</a> |
-    <a href="datenschutz.html">Datenschutz</a> |
-    <a href="agb.html">AGB</a> |
-    <a href="kontakt.html">Kontakt</a>
+    <p>&copy; 2025 HEAL DIGITAL · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
   </footer>
-
-  <script>
-    const form = document.getElementById('campaignForm');
-    const output = document.getElementById('output');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const data = {};
-      formData.forEach((value, key) => data[key] = value);
-
-      output.textContent = 'Kampagne wird generiert...';
-
-      const prompt = `Erstelle eine Marketingkampagne für die Plattform: ${data.kanal}
-
-Zielgruppe: ${data.zielgruppe}
-Kampagnenziel: ${data.ziel}
-Budget: ${data.budget} €
-Dauer: ${data.dauer} Tage
-Stil: ${data.stil}
-Besonderheiten/USP: ${data.besondere_inhalte}
-Call to Action: ${data.call_to_action}
-
-Liefere:
-1. 3 virale Hooks (je max. 10 Wörter)
-2. 3 Videoideen mit kurzer Beschreibung und Musiktipp
-3. 3 Caption-Vorschläge
-4. 5 passende Hashtags (Trends + Nischen)`;
-
-      const response = await fetch('/api/generate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: prompt })
-      });
-
-      const result = await response.json();
-      output.textContent = result.output || 'Fehler bei der Generierung.';
-    });
-  </script>
 </body>
 </html>
