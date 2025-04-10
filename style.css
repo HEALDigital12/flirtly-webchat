@@ -5,17 +5,27 @@ body {
   background-color: #fff;
   color: #222;
 }
-header {
-  background: linear-gradient(to right, #ff3366, #ff6680);
-  color: white;
-  text-align: center;
-  padding: 60px 20px;
+header .hero {
+  position: relative;
 }
-.hero h1 {
+.hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: brightness(0.7);
+}
+.hero-text {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  color: white;
+  max-width: 90%;
+}
+.hero-text h1 {
   font-size: 3em;
   margin: 0.2em 0;
 }
-.hero p {
+.hero-text p {
   font-size: 1.2em;
   margin-bottom: 1.5em;
 }
